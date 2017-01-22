@@ -1,0 +1,16 @@
+language: go
+
+matrix:
+    include:
+        - go: 1.4.3
+        - go: 1.5.4
+        - go: 1.6.3
+        - go: 1.7
+        - go: tip
+    allow_failures:
+        - go: tip
+
+script:
+    - go test -v ./...
+    - cd examples && go build
+    - diff -u <(echo -n) <(gofmt -d -s .)
