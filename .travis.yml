@@ -15,6 +15,8 @@ install:
 - go get github.com/modocache/gover
 
 script:
-- echo "Test and track coverage" ; $HOME/gopath/bin/goveralls -package "." -service=travis-ci
+- echo "Test and track coverage" ; $HOME/gopath/bin/goveralls -package "." -service=travis-ci -repotoken $COVERALLS_TOKEN
 - echo "Build examples" ; cd examples && go build
 - echo "Check if gofmt'd" ; diff -u <(echo -n) <(gofmt -d -s .)
+global:
+  secure: vqwEt5jczKaKqo1MKGoxsB8WysnI+yu0/mpxJeU2OdoMFprg9WxDK7ZKVFgVqqvJdSuP9EFK8jQDbpktU1dpwUc3gPE07tvS/3miO9lErxMG/35PutRCIPTKKd7g82xh0PIiSc+TrTe2v5qregbFoFORjcWNQZsesSydOLEHSKekOaMQ4hXJUO8IBBueN7y/HXTckwIufmh3G8qU0zl+B1i2UAeOrEAfxkl+R2a3Pmomdz9hb1aZvYmeh756gv+IuBAqfo1vnbRH4n2MWWvbA9VFyUZ5nvxAdTqA5bu1bB0VqX2P2SfcLQSd03hE6T2KBa+oJ/0sma0Xgw5+wfentFa2boevDk6B1LBsyChI+aJgR4LiPfL9dV8kdE8o5ZC88VCibS+T4couwfE2wkbeh2fG6Bm8BEZyyn07HWotGrH+VcOVJ5snqVHHk2yYRHSMuXfa++bLtYewfLJcguwvy38csj1XPd1uhRfH4fl4S2V7GdvkMhYVYEFe44h+EAtSMuSG0h8m+oX8u9fiTfuQjvcYheCdnx7wr55jqzxl2VViDHN+8UYjuriijGS+nzdemQemJyRA3Qha8tnmRLjrVdmsR52IJCkDZglY4cwIwvJwJ3BTDr9Wn9FWOUjKJbI2rkeLB1AonzoyaUDsUobaJIOelnn/dv5gvLNbeTw3vH4=
